@@ -45,14 +45,16 @@ namespace EventManagementSystem
                 cmd.Parameters.Add(p5);
                 cmd.Parameters.Add(p6);
 
-               SqlDataReader rd = cmd.ExecuteReader();
+               
 
-                if (rd.Read() == true)
+                int returnval = Convert.ToInt32(cmd.ExecuteScalar());
+                if (returnval == 1)
                 {
 
                     EventCreated.Text = "Event Created";
                     EventCreated.Visible = true;
-                    
+                    Response.AddHeader("REFRESH", "2;URL=AddEvent.aspx");
+
 
                 }
                 conn.Close();

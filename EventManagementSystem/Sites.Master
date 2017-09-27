@@ -38,7 +38,7 @@
                    <br />
                    <ul class="nav navbar-nav navbar-left">
                        <li><a  href="Welcome.aspx">Event List</a></li>
-                       <li><a  href="AddEvent.aspx">Add Event</a></li>  
+                        
 
                    </ul>
                    <ul class="nav navbar-nav navbar-right"> 
@@ -51,10 +51,8 @@
             </LoggedInTemplate>
 
          </asp:LoginView>
-    
-  
-  
-         <div >
+
+         <div class="container">
 
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">  
             
