@@ -95,6 +95,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddEvent.aspx" />
+    <Content Include="ErrorPage.aspx" />
     <Content Include="Images\addicon.png" />
     <Content Include="Images\event1.jpg" />
     <Content Include="Images\event2.jpg" />
@@ -109,6 +110,8 @@
     </Content>
     <Content Include="Sites.Master" />
     <Content Include="Sample.Master" />
+    <Content Include="StyleSheet.css" />
+    <Content Include="UserError.aspx" />
     <Content Include="Welcome.aspx" />
     <Content Include="Site.Master" />
     <Content Include="USER\Web.config" />
@@ -127,7 +130,9 @@
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="mastercss.css" />
     <Content Include="StyleSheet1.css" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddEvent.aspx.cs">
@@ -137,8 +142,22 @@
     <Compile Include="AddEvent.aspx.designer.cs">
       <DependentUpon>AddEvent.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ErrorPage.aspx.cs">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ErrorPage.aspx.designer.cs">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="UserError.aspx.cs">
+      <DependentUpon>UserError.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserError.aspx.designer.cs">
+      <DependentUpon>UserError.aspx</DependentUpon>
     </Compile>
     <Compile Include="USER\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

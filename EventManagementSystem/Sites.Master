@@ -6,65 +6,63 @@
 <html xmlns="http://www.w3.org/1999/xhtml">  
 <head runat="server">  
     <title>Event Management System</title>  
-<%--    <link href="css/my.css" rel="stylesheet" />  --%>
     <asp:ContentPlaceHolder ID="head" runat="server">  
     </asp:ContentPlaceHolder>  
  
-   
-  
-  <%--  <title>my layout</title>  --%>
     <link rel="stylesheet" type="text/css" href="StyleSheet1.css"/>  
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>  
-<body <%--style="background-image:url('/Images/event3.jpg')"--%>>  
-<header id="header">  
-<h1>Event Management System</h1>  
-</header>
+<body>  
+    <header id="header">  
+    <h1>Event Management System</h1>  
+    </header>
      
      <form runat="server"> 
-     <asp:LoginView ID="LoginView1" runat="server">
+         <asp:LoginView ID="LoginView1" runat="server">
         
-        <AnonymousTemplate>
-           <nav id="nav" class="navbar">  
-                 <ul>  
-                    <li><a href="Login.aspx">Home</a></li>  
-                    <li><a href="Register.aspx">Register</a></li>  
-                    <li><a href="#">About</a></li>  
-                    <li><a href="#">Contact</a></li>  
-                 </ul>  
-            </nav>  
-            <div id="con"><img id="img1"src="/Images/icon1.png" style="width:400px;height:400px;"/>
-        </AnonymousTemplate>
-        <LoggedInTemplate>
+            <AnonymousTemplate>
+               <nav id="nav" class="navbar">  
+                     <ul >  
+                        <li><a  href="Login.aspx">Home</a></li>  
+                        <li><a href="Register.aspx">Register</a></li>  
+                        <li><a href="#">Contact</a></li>  
+                     </ul>  
+               </nav>  
+               <div id="con"><img id="img1"src="/Images/icon1.png"/></div>
+           </AnonymousTemplate>
+           <LoggedInTemplate>
+         
+               <nav id="nav"class="navbar"> 
+                   <br />
+                   <ul class="nav navbar-nav navbar-left">
+                       <li><a  href="Welcome.aspx">Event List</a></li>
+                       <li><a  href="AddEvent.aspx">Add Event</a></li>  
 
-           
-            <nav id="nav"class="navbar"> 
-                
-               <ul class="nav navbar-nav navbar-right"> 
-                    <li class="labelname"><asp:Label ID="userlabel1" runat="server" Font-Italic="False" Font-Size="X-Large" ForeColor="White" /></li>
-                    <li class="logoutbutton">
-                      <asp:Button ID="logoutbtn" runat="server" BackColor="#99CCFF" BorderColor="#006666" ForeColor="#000099" OnClick="logoutbtn_Click1" Text="Logout" /></li>
-               </ul>  
-             </nav>
+                   </ul>
+                   <ul class="nav navbar-nav navbar-right"> 
+                        <li class="labelname"><asp:Label ID="userlabel1" runat="server" Font-Italic="False" Font-Size="X-Large" ForeColor="White" /></li>
+                        <li class="logoutbutton">
+                          <asp:Button ID="logoutbtn" runat="server" BackColor="#99CCFF" BorderColor="#006666" ForeColor="#000099" OnClick="logoutbtn_Click1" Text="Logout" /></li>
+                   </ul>  
+               </nav>
+               <div id="con"><img id="img1"src="/Images/icon2.png"/></div>
+            </LoggedInTemplate>
 
-            <div id="con"><img id="img1"src="/Images/icon2.png" style="width:400px;height:400px;"/>
-        </LoggedInTemplate>
-
-     </asp:LoginView>
--
+         </asp:LoginView>
+    
   
   
-    <div id="con">
+         <div >
 
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">  
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">  
             
-        </asp:ContentPlaceHolder>  
+            </asp:ContentPlaceHolder>  
                   
-    </div>  
- -
-</form>
+        </div>  
+ 
+  </form>
   
   
 <%--<footer id="footer">  

@@ -7,9 +7,9 @@
             <asp:Label ID="Label1" runat="server" Font-Names="Comic Sans MS" Font-Size="X-Large" ForeColor="#006699" Text="Events Booked"></asp:Label>
             <br />
             <br />
-            <asp:GridView ID="GridView1" runat="server" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" BorderStyle="Solid" Font-Names="Comic Sans MS" Font-Size="Large" ForeColor="#006699" ShowFooter = "True" OnRowDeleting="GridView1_RowDeleting1" OnRowEditing="GridView1_RowEditing1" OnRowUpdating="GridView1_RowUpdating1" DataKeyNames="EventId" EnablePersistedSelection="True" OnSelectedIndexChanged="GridView1_SelectedIndexChanged"> 
+            <asp:GridView ID="GridView1" runat="server" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" BorderStyle="Solid" Font-Names="Comic Sans MS" Font-Size="Large" ForeColor="#006699" ShowFooter = "True" OnRowDeleting="GridView1_RowDeleting1" OnRowEditing="GridView1_RowEditing1" OnRowUpdating="GridView1_RowUpdating1" DataKeyNames="EventId" EnablePersistedSelection="True" > 
                 <Columns>
-                    <asp:BoundField DataField="EventId" HeaderText="EventId" InsertVisible="False" ReadOnly="True" SortExpression="EventId" />
+                    <asp:BoundField DataField="EventId" HeaderText="EventId" InsertVisible="False" ReadOnly="True" SortExpression="EventId" Visible="False" />
                     <asp:BoundField DataField="EventName" HeaderText="EventName" SortExpression="EventName" />
                     <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
                     <asp:BoundField DataField="EventDate" HeaderText="EventDate" SortExpression="EventDate" />

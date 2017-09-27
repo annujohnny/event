@@ -9,7 +9,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form id="form1" runat="server">
+    <div>
     <p>
         &nbsp;</p>
         <p>
@@ -39,8 +39,8 @@
     <asp:Button ID="RegisterButton" runat="server" Text="Register" OnClick="RegisterButton_Click" BackColor="#99CCFF" Font-Names="Comic Sans MS" Font-Size="Medium" ForeColor="#3333CC" />
 &nbsp;</p>
     <p>
-        <asp:Label ID="MessageCreated" runat="server" Visible="False"></asp:Label>
+        <asp:Label ID="MessageCreated" runat="server" Visible="False" ForeColor="#006699"></asp:Label>
 </p>
-</form>
+</div>
     <br />
 </asp:Content>

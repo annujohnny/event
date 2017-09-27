@@ -16,66 +16,93 @@ namespace EventManagementSystem
 
         }
 
-       
-       
+
+        /// <summary>
+        /// To register a new user 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         protected void RegisterButton_Click(object sender, EventArgs e)
-        {  
-            SqlConnection conn = new SqlConnection("Data Source=Suypc068;Initial Catalog=Event;Persist Security Info=True;User ID=sa;Password=Suyati123");
-
-            conn.Open();
-            SqlCommand cmd = new SqlCommand("Details", conn);
-            cmd.CommandType = CommandType.StoredProcedure;
-           
-            SqlParameter p1 = new SqlParameter("username", UserRegister.Text);
-            SqlParameter p2 = new SqlParameter("password", PasswordRegister.Text);
-        
-            cmd.Parameters.Add(p1);
-            cmd.Parameters.Add(p2);
-           
-            SqlDataReader rd = cmd.ExecuteReader();
-
-            if (rd.HasRows)
+        {
+            try
             {
-                rd.Read();
-                MessageCreated.Text = "User Created";
-                MessageCreated.Visible = true;
+
+
+                SqlConnection conn = new SqlConnection("Data Source=Suypc068;Initial Catalog=Event;Persist Security Info=True;User ID=sa;Password=Suyati123");
+
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("Details", conn);// calling stored procedure 'Details' in which  details of new user is added into table'UserProfile'
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                /*Adding parameters to stored procedure*/
+                SqlParameter p1 = new SqlParameter("username", UserRegister.Text);
+                SqlParameter p2 = new SqlParameter("password", PasswordRegister.Text); cmd.Parameters.Add(p1);
+                cmd.Parameters.Add(p2);
+
+                
+                int outval = Convert.ToInt32(cmd.ExecuteScalar());
+                if (outval == 1)                                       // if inserted 
+                {
+                    
+                    MessageCreated.Text = "User Created..Go to LOGIN ";
+                    MessageCreated.Visible = true;
+                    
+                }
                 conn.Close();
-                Response.Redirect("Login.aspx");
+
+
 
             }
-            else
+            catch (Exception ex)
             {
-                MessageCreated.Text = "User Not Created";
-                conn.Close();
+                Response.Redirect("ErrorPage.aspx");
+
             }
-           
-           
+            
+
         }
 
-        protected void UserRegister_TextChanged(object sender, EventArgs e)
+    /// <summary>
+    ///  To check whether username  already exist
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void UserRegister_TextChanged(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection("Data Source=Suypc068;Initial Catalog=Event;Persist Security Info=True;User ID=sa;Password=Suyati123");
-
-            conn.Open();
-            SqlCommand cmd = new SqlCommand("Duplicate", conn);
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            SqlParameter p = new SqlParameter("username", UserRegister.Text);
-            cmd.Parameters.Add(p);
-            SqlDataReader rd = cmd.ExecuteReader();
-
-            if (rd.HasRows)
+            try
             {
-                rd.Read();
-                MessageDuplicate.Text = "User Already Exist.";
+                SqlConnection conn = new SqlConnection("Data Source=Suypc068;Initial Catalog=Event;Persist Security Info=True;User ID=sa;Password=Suyati123");
 
-                MessageDuplicate.Visible = true;
-                RegisterButton.Enabled = false;
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("Duplicate", conn);//calling stored procedure 'Duplicate' which reads details of particular user if it already exist
+                cmd.CommandType = CommandType.StoredProcedure;
+                
+                /*Adding parameters to stored procedure*/
+                SqlParameter p = new SqlParameter("username", UserRegister.Text);
+                cmd.Parameters.Add(p);
+                SqlDataReader rd = cmd.ExecuteReader();
+                
+                
+                if (rd.HasRows)
+                {
+                    rd.Read();
+                    MessageDuplicate.Text = "User Already Exist.";
+
+                    MessageDuplicate.Visible = true;
+                    RegisterButton.Enabled = false;
+                }
+
+
+                conn.Close();
             }
-            
-            
-            conn.Close();
+
+            catch (Exception ex)
+            {
+                Response.Redirect("ErrorPage.aspx");
+
+            }
         }
     }
+
 }
