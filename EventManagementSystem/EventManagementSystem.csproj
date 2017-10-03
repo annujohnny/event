@@ -85,6 +85,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -95,15 +96,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddEvent.aspx" />
+    <Content Include="Images\email3.jpg" />
+    <Content Include="Images\footerimage.jpg" />
+    <Content Include="USER\Contact.aspx" />
     <Content Include="ErrorPage.aspx" />
     <Content Include="Images\addicon.png" />
-    <Content Include="Images\event1.jpg" />
-    <Content Include="Images\event2.jpg" />
-    <Content Include="Images\event3.jpg" />
-    <Content Include="Images\event4.jpg" />
+    <Content Include="Images\eventena.png" />
+    <Content Include="Images\eventena1.png" />
     <Content Include="Images\eventicon.jpg" />
     <Content Include="Images\icon1.png" />
     <Content Include="Images\icon2.png" />
+    <Content Include="Images\icon4.png" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -141,6 +144,13 @@
     </Compile>
     <Compile Include="AddEvent.aspx.designer.cs">
       <DependentUpon>AddEvent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="USER\Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="USER\Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="ErrorPage.aspx.cs">
       <DependentUpon>ErrorPage.aspx</DependentUpon>

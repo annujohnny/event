@@ -24,47 +24,62 @@ namespace EventManagementSystem
         {
             try
             {
-                SqlConnection conn = new SqlConnection("Data Source=Suypc068;Initial Catalog=Event;Persist Security Info=True;User ID=sa;Password=Suyati123");
-
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("ADDEVENT", conn);// calling stored procedure'ADDEVENT' that add event details to table EventDetails in sql server database
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                /*Adding parameters to stored procedure*/
-
-                SqlParameter p1 = new SqlParameter("eventname", Eventname.Text);
-                SqlParameter p2 = new SqlParameter("description", Description.Text);
-                SqlParameter p3 = new SqlParameter("date", Date.Text);
-                SqlParameter p4 = new SqlParameter("venue", Venue.Text);
-                SqlParameter p5 = new SqlParameter("contactperson", Contact.Text);
-                SqlParameter p6 = new SqlParameter("userid", Session["id"]);
-                cmd.Parameters.Add(p1);
-                cmd.Parameters.Add(p2);
-                cmd.Parameters.Add(p3);
-                cmd.Parameters.Add(p4);
-                cmd.Parameters.Add(p5);
-                cmd.Parameters.Add(p6);
-
-               
-
-                int returnval = Convert.ToInt32(cmd.ExecuteScalar());
-                if (returnval == 1)
+                if (String.IsNullOrEmpty(Eventname.Text))                 //checks whether event name is empty,if yes message is given to the user to inform that
                 {
-
-                    EventCreated.Text = "Event Created";
-                    EventCreated.Visible = true;
-                    Response.AddHeader("REFRESH", "2;URL=AddEvent.aspx");
-
+                    Emptymessage.Text = "Event name cannot be empty";
+                    Emptymessage.Visible = true;
 
                 }
-                conn.Close();
+                else                                                     //check whether event name empty ,if not event added 
+                {
 
+
+                    SqlConnection conn = new SqlConnection("Data Source=Suypc068;Initial Catalog=Event;Persist Security Info=True;User ID=sa;Password=Suyati123");
+
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("ADDEVENT", conn);// calling stored procedure'ADDEVENT' that add event details to table EventDetails in sql server database
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    /*Adding parameters to stored procedure*/
+
+                    SqlParameter p1 = new SqlParameter("eventname", Eventname.Text);
+                    SqlParameter p2 = new SqlParameter("description", Description.Text);
+                    SqlParameter p3 = new SqlParameter("date", Date.Text);
+                    SqlParameter p4 = new SqlParameter("venue", Venue.Text);
+                    SqlParameter p5 = new SqlParameter("contactperson", Contact.Text);
+                    SqlParameter p6 = new SqlParameter("userid", Session["id"]);
+                    cmd.Parameters.Add(p1);
+                    cmd.Parameters.Add(p2);
+                    cmd.Parameters.Add(p3);
+                    cmd.Parameters.Add(p4);
+                    cmd.Parameters.Add(p5);
+                    cmd.Parameters.Add(p6);
+
+
+
+                    int returnval = Convert.ToInt32(cmd.ExecuteScalar()); //Executes the query, and returns the first column of the first row in the result set returned by the query
+
+                    if (returnval == 1)                                    // if true event created message is given 
+                    {
+
+                        EventCreated.Text = "Event Created";
+                        EventCreated.Visible = true;
+                        Response.AddHeader("REFRESH", "2;URL=AddEvent.aspx");//refresh the page  after 2 seconds to add more events
+
+
+                    }
+                    conn.Close();
+
+                }
             }
-            catch(Exception ex)
+
+            catch (Exception ex)
             {
-                Response.Redirect("UserError.aspx");
+                Response.Redirect("ErrorPage.aspx");   //// Redirects to error page on exception
             }
             
         }
+
+        
     }
 }

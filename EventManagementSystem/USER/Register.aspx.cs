@@ -53,10 +53,11 @@ namespace EventManagementSystem
 
 
 
+
             }
             catch (Exception ex)
             {
-                Response.Redirect("ErrorPage.aspx");
+                Response.Redirect("~/ErrorPage.aspx");
 
             }
             
@@ -84,7 +85,7 @@ namespace EventManagementSystem
                 SqlDataReader rd = cmd.ExecuteReader();
                 
                 
-                if (rd.HasRows)
+                if (rd.HasRows)                                     // checks table to know whether the user is already registered,if yes that message ia dispalyed
                 {
                     rd.Read();
                     MessageDuplicate.Text = "User Already Exist.";
@@ -99,7 +100,7 @@ namespace EventManagementSystem
 
             catch (Exception ex)
             {
-                Response.Redirect("ErrorPage.aspx");
+                Response.Redirect("ErrorPage.aspx");                // Redirects to error page on exception
 
             }
         }

@@ -14,9 +14,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>  
-<body>  
+<body >  
     <header id="header">  
-    <h1>Event Management System</h1>  
+    <h1>Eventena</h1>  
     </header>
      
      <form runat="server"> 
@@ -27,13 +27,13 @@
                      <ul >  
                         <li><a  href="Login.aspx">Home</a></li>  
                         <li><a href="Register.aspx">Register</a></li>  
-                        <li><a href="#">Contact</a></li>  
+                        <li><a href="Contact.aspx">Contact</a></li>  
                      </ul>  
                </nav>  
-               <div id="con"><img id="img1"src="/Images/icon1.png"/></div>
+               
            </AnonymousTemplate>
            <LoggedInTemplate>
-         
+               
                <nav id="nav"class="navbar"> 
                    <br />
                    <ul class="nav navbar-nav navbar-left">
@@ -47,27 +47,28 @@
                           <asp:Button ID="logoutbtn" runat="server" BackColor="#99CCFF" BorderColor="#006666" ForeColor="#000099" OnClick="logoutbtn_Click1" Text="Logout" /></li>
                    </ul>  
                </nav>
-               <div id="con"><img id="img1"src="/Images/icon2.png"/></div>
-            </LoggedInTemplate>
+             </LoggedInTemplate>
 
          </asp:LoginView>
 
-         <div class="container">
+         
 
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">  
             
             </asp:ContentPlaceHolder>  
                   
-        </div>  
+          
  
   </form>
   
   
-<%--<footer id="footer">  
-   
-</footer>  --%>
-<%--</body> --%> 
-<%--</html>  --%>
+<footer id="footer">  
+ <p>
+ <img id="img3"src="/Images/footerimage.jpg" /> Eventena12@gmail.com 
+                                                9756495674
+ </p>  
+</footer>  
+
    
 </body>  
 </html>  

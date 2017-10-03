@@ -6,6 +6,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows.Forms;
+
 
 namespace EventManagementSystem
 {
@@ -16,6 +18,7 @@ namespace EventManagementSystem
         protected void Page_Load(object sender, EventArgs e)
         {
 
+           
         }
        
 
@@ -27,7 +30,7 @@ namespace EventManagementSystem
         protected void GridView1_RowDeleting1(object sender, GridViewDeleteEventArgs e)
         {
             try
-            {
+            {       
                     SqlConnection conn = new SqlConnection("Data Source=Suypc068;Initial Catalog=Event;Persist Security Info=True;User ID=sa;Password=Suyati123");
                     int Id = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Values["EventId"]);//getting id from grid
 
@@ -40,7 +43,7 @@ namespace EventManagementSystem
              }
             catch (Exception ex)
             {
-                Response.Redirect("UserError.aspx");
+                Response.Redirect("ErrorPage.aspx");
             }
             finally
             {
@@ -56,6 +59,7 @@ namespace EventManagementSystem
         protected void GridView1_RowEditing1(object sender, GridViewEditEventArgs e)
         {
             GridView1.EditIndex = e.NewEditIndex;
+            
 
         }
         /// <summary>
@@ -68,16 +72,17 @@ namespace EventManagementSystem
         {
             try
             {
-                    SqlConnection conn = new SqlConnection("Data Source=Suypc068;Initial Catalog=Event;Persist Security Info=True;User ID=sa;Password=Suyati123");
+               
+                SqlConnection conn = new SqlConnection("Data Source=Suypc068;Initial Catalog=Event;Persist Security Info=True;User ID=sa;Password=Suyati123");
 
                     
                     int EventId = Convert.ToInt32( GridView1.DataKeys[e.RowIndex].Values["EventId"]);// getting event id of event row to be edited
                     /*Storing new values of each column into different variables */
                     string EventName = e.NewValues[0].ToString(); 
                     string Description = e.NewValues[1].ToString();
-                    string Date = e.NewValues[2].ToString();
+                    DateTime Date = Convert.ToDateTime(e.NewValues[2].ToString());
                     string Venue = e.NewValues[3].ToString();
-                    string Contact = e.NewValues[4].ToString();
+                    Int64 Contact = Convert.ToInt64(e.NewValues[4]);
                     conn.Open();
                     SqlCommand cd = new SqlCommand("UPDATEEVENT", conn);// Using stored procedure'UPDATEEVENT' grid editing is done
                     cd.CommandType = CommandType.StoredProcedure;
@@ -110,7 +115,7 @@ namespace EventManagementSystem
             catch (Exception ex)
             {
                 
-                Response.Redirect("UserError.aspx");            //To redirect to custom error page on exception
+                Response.Redirect("ErrorPage.aspx");            //To redirect to custom error page on exception
             }
             finally
             {
@@ -118,6 +123,6 @@ namespace EventManagementSystem
             }
         }
 
-        
+       
     }
 }

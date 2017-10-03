@@ -10,7 +10,7 @@
 namespace EventManagementSystem {
     
     
-    public partial class Register {
+    public partial class Contact {
         
         /// <summary>
         /// Label1 control.
@@ -22,111 +22,105 @@ namespace EventManagementSystem {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// userlabel control.
+        /// namelabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label userlabel;
+        protected global::System.Web.UI.WebControls.Label namelabel;
         
         /// <summary>
-        /// UserRegister control.
+        /// Name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox UserRegister;
+        protected global::System.Web.UI.WebControls.TextBox Name;
         
         /// <summary>
-        /// RequiredFieldValidator2 control.
+        /// emaillabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        protected global::System.Web.UI.WebControls.Label emaillabel;
         
         /// <summary>
-        /// MessageDuplicate control.
+        /// Email control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label MessageDuplicate;
+        protected global::System.Web.UI.WebControls.TextBox Email;
         
         /// <summary>
-        /// passwordlabel control.
+        /// Subjectlabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label passwordlabel;
+        protected global::System.Web.UI.WebControls.Label Subjectlabel;
         
         /// <summary>
-        /// PasswordRegister control.
+        /// Subject control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox PasswordRegister;
+        protected global::System.Web.UI.WebControls.TextBox Subject;
         
         /// <summary>
-        /// CompareValidator2 control.
+        /// feedbacklabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator2;
+        protected global::System.Web.UI.WebControls.Label feedbacklabel;
         
         /// <summary>
-        /// Cpass control.
+        /// Query control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Cpass;
+        protected global::System.Web.UI.WebControls.TextBox Query;
         
         /// <summary>
-        /// CpasswordRegister control.
+        /// Sendmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CpasswordRegister;
+        protected global::System.Web.UI.WebControls.Button Sendmail;
         
         /// <summary>
-        /// CompareValidator1 control.
+        /// MailSend control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
+        protected global::System.Web.UI.WebControls.Label MailSend;
         
         /// <summary>
-        /// RegisterButton control.
+        /// Master property.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Auto-generated property.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button RegisterButton;
-        
-        /// <summary>
-        /// MessageCreated control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label MessageCreated;
+        public new EventManagementSystem.Sites Master {
+            get {
+                return ((EventManagementSystem.Sites)(base.Master));
+            }
+        }
     }
 }

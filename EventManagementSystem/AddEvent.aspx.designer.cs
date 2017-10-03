@@ -40,6 +40,15 @@ namespace EventManagementSystem {
         protected global::System.Web.UI.WebControls.TextBox Eventname;
         
         /// <summary>
+        /// Emptymessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Emptymessage;
+        
+        /// <summary>
         /// Label3 control.
         /// </summary>
         /// <remarks>

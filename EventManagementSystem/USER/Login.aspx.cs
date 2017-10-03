@@ -46,14 +46,14 @@ namespace EventManagementSystem
                 }
                 else
                 {
-                    Message.Text = "Invalid credentials. Please try again.";//
+                    Message.Text = "Invalid credentials. Please try again.";// if username and password doesnot match or no such user ,message given to the user
                     Message.Visible = true;
                 }
                 conn.Close();
             }
             catch(Exception ex)
             {
-                Response.Redirect("ErrorPage.aspx");//if exception occured redirect to error page
+                Response.Redirect("~/ErrorPage.aspx");//if exception occured redirect to error page
             }
             
         }
