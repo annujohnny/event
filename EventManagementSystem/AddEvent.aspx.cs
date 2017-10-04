@@ -13,7 +13,7 @@ namespace EventManagementSystem
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+           Date.Attributes["min"] = DateTime.Now.ToString("yyyy-MM-dd");
         }
         /// <summary>
         /// To add event on button click

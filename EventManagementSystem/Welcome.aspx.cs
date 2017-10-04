@@ -17,7 +17,7 @@ namespace EventManagementSystem
         private SqlConnection conn = new SqlConnection("Data Source=SuyPC068;Initial Catalog=Event;Persist Security Info=True;User ID=sa;Password=Suyati123");
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session["date"] = DateTime.Today.ToString("yyyy/MM/dd"); 
            
         }
        
@@ -123,6 +123,28 @@ namespace EventManagementSystem
             }
         }
 
-       
+        protected void GridView2_RowDeleting1(object sender, GridViewDeleteEventArgs e)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection("Data Source=Suypc068;Initial Catalog=Event;Persist Security Info=True;User ID=sa;Password=Suyati123");
+                int Id = Convert.ToInt32(GridView2.DataKeys[e.RowIndex].Values["EventId"]);//getting id from grid
+
+                conn.Close();
+                SqlCommand cmd = new SqlCommand("DELETE FROM EventDetails WHERE EventId=" + Id + "", conn);//deleting from database
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
+
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("ErrorPage.aspx");
+            }
+            finally
+            {
+                Response.Redirect("Welcome.aspx");
+            }
+        }
     }
 }
